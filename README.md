@@ -14,7 +14,7 @@ compiler you'd need is there.
 Do this:
 
 ```javascript
-const tryRequire = require("tryRequire");
+const tryRequire = require("@sverweij/tryRequire");
 const typescript = tryRequire(
     "typescript",
     ">2"

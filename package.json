@@ -41,8 +41,7 @@
   },
   "homepage": "https://github.com/sverweij/try-require",
   "dependencies": {
-    "semver": "5.4.1",
-    "state-machine-cat": "2.1.6"
+    "semver": "5.4.1"
   },
   "engines": {
     "node": ">=4"

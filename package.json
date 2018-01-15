@@ -1,5 +1,5 @@
 {
-  "name": "@verweij/try-require",
+  "name": "tigerclaws-try-require",
   "version": "1.0.0-beta",
   "description": "function-as-a-module to require modules that might not be there",
   "main": "src/index.js",
@@ -31,7 +31,8 @@
   },
   "homepage": "https://github.com/sverweij/try-require",
   "dependencies": {
-    "semver": "5.4.1"
+    "semver": "5.4.1",
+    "state-machine-cat": "2.1.6"
   },
   "engines": {
     "node": ">=4"

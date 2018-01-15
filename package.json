@@ -1,7 +1,7 @@
 {
   "name": "tigerclaws-try-require",
   "version": "1.0.1-beta",
-  "description": "function-as-a-module to require modules that might not be there - with semver",
+  "description": "micro module to require (versions of) modules that might not be there",
   "main": "src/index.js",
   "scripts-info": {
     "update-dependencies": "ups npm dependencies to latest, then runs a lint:fix, a regression test and a security scan"

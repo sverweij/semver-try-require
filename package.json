@@ -34,12 +34,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sverweij/try-require"
+    "url": "git+https://github.com/sverweij/tigerclaws-try-require"
   },
   "bugs": {
-    "url": "https://github.com/sverweij/try-require/issues"
+    "url": "https://github.com/sverweij/tigerclaws-try-require/issues"
   },
-  "homepage": "https://github.com/sverweij/try-require",
+  "homepage": "https://github.com/sverweij/tigerclaws-try-require",
   "dependencies": {
     "semver": "5.4.1"
   },

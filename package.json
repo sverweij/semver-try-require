@@ -1,5 +1,5 @@
 {
-  "name": "@sverweij/try-require",
+  "name": "@verweij/try-require",
   "version": "1.0.0-beta",
   "description": "function-as-a-module to require modules that might not be there",
   "main": "src/index.js",

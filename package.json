@@ -1,7 +1,7 @@
 {
   "name": "tigerclaws-try-require",
-  "version": "1.0.0-beta",
-  "description": "function-as-a-module to require modules that might not be there",
+  "version": "1.0.0",
+  "description": "function-as-a-module to require modules that might not be there - with semver",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src test",

@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "function-as-a-module to require modules that might not be there - with semver",
   "main": "src/index.js",
+  "scripts-info": {
+    "update-dependencies": "ups npm dependencies to latest, then runs a lint:fix, a regression test and a security scan"
+  },
   "scripts": {
+    "check": "npm-run-all  --parallel lint:fix test node-security",
     "lint": "eslint src test",
     "lint:fix": "eslint --fix src test",
+    "node-security": "nsp check",
+    "npm-check-updates": "ncu --upgrade",
     "test": "mocha --bail --reporter dot test/*.spec.js",
-    "test:cover": "istanbul cover node_modules/mocha/bin/_mocha -- test/*.spec.js"
+    "test:cover": "istanbul cover node_modules/mocha/bin/_mocha -- test/*.spec.js",
+    "update-dependencies": "npm-run-all npm-check-updates check"
   },
   "keywords": [],
   "author": "Sander Verweij (https://sverweij.github.io/)",
@@ -20,7 +27,10 @@
     "eslint-plugin-node": "5.2.1",
     "eslint-plugin-security": "1.4.0",
     "istanbul": "0.4.5",
-    "mocha": "4.1.0"
+    "mocha": "4.1.0",
+    "npm-check-updates": "2.14.0",
+    "npm-run-all": "4.1.2",
+    "nsp": "3.1.0"
   },
   "repository": {
     "type": "git",

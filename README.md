@@ -37,15 +37,15 @@ module.exports = {
 };
 ```
 
-## signature
+## Signature
 ### pModulename
-the name of the module to resolve
+The name of the module to resolve.
 
 ### pSemVer
-(optional) a semantic version (range)
+A semantic version (range). Optional.
 
 ### return value
-returns the (resolved) module identified by pModuleName:
+The (resolved) module identified by pModuleName:
 - if it is available, and
 - it satisfies the semantic version range specified by pSemVer
 

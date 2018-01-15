@@ -49,3 +49,9 @@ returns the (resolved) module identified by pModuleName:
 - it satisfies the semantic version range specified by pSemVer
 
 returns false in all other cases
+
+
+## flare
+
+[![Build Status](https://travis-ci.org/sverweij/try-require.svg?branch=master)](https://travis-ci.org/sverweij/try-require)
+[![npm stable version](https://img.shields.io/npm/v/tigerclaws-try-require.svg)](https://npmjs.com/package/tigerclaws-try-require)

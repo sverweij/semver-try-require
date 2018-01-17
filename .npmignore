@@ -1,7 +1,11 @@
 node_modules
-coverage
-tmp*
-.github/*
+.github
 test
+coverage
+
 .eslintignore
 .eslintrc.json
+.npmrc
+.travis.yml
+
+tmp*

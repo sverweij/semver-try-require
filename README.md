@@ -45,8 +45,8 @@ The name of the module to resolve.
 A semantic version (range). Optional.
 
 ### return value
-The (resolved) module identified by pModuleName:
-- if it is available, and
+The (resolved) module identified by pModuleName if:
+- it is available, and
 - it satisfies the semantic version range specified by pSemVer
 
 returns false in all other cases
@@ -58,7 +58,7 @@ returns false in all other cases
 
 ## Badges'n flare section
 
-[![Build Status](https://travis-ci.org/sverweij/try-require.svg?branch=master)](https://travis-ci.org/sverweij/try-require)
+[![Build Status](https://travis-ci.org/sverweij/tigerclaws-try-require.svg?branch=master)](https://travis-ci.org/sverweij/tigerclaws-try-require)
 [![npm stable version](https://img.shields.io/npm/v/tigerclaws-try-require.svg)](https://npmjs.com/package/tigerclaws-try-require)
 
 Made with :metal: in Holland

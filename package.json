@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/sverweij/tigerclaws-try-require",
   "dependencies": {
-    "semver": "5.4.1"
+    "semver": "5.5.0"
   },
   "engines": {
     "node": ">=4"

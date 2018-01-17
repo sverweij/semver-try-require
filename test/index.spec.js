@@ -5,7 +5,7 @@ const semver     = require('semver');
 const tryRequire = require("../src");
 
 
-describe("transpiler tryRequire", () => {
+describe("tryRequire", () => {
     it("returns false for unresolvable modules", () => {
         expect(
             tryRequire('thispackage-is-not-there')

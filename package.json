@@ -1,6 +1,6 @@
 {
   "name": "tigerclaws-try-require",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "micro module to require (versions of) modules that might not be there",
   "main": "src/index.js",
   "scripts-info": {

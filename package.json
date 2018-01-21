@@ -42,5 +42,6 @@
   },
   "engines": {
     "node": ">=4"
-  }
+  },
+  "types": "types/index.d.ts"
 }

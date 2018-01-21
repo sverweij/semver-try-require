@@ -4,7 +4,7 @@
   "description": "micro module to require (versions of) modules that might not be there",
   "main": "src/index.js",
   "scripts": {
-    "check": "npm-run-all  --parallel lint:fix test node-security",
+    "check": "npm-run-all  --parallel lint test node-security",
     "lint": "eslint src test",
     "lint:fix": "eslint --fix src test",
     "node-security": "nsp check",

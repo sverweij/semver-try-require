@@ -12,7 +12,7 @@ install:
   - npm install
 
 script:
-  - npm run check
+  - 'if test `node --version | cut -c 2` != 4; then npm run check; else npm test; fi'
 
 cache:
   directories:

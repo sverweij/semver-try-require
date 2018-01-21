@@ -1,11 +1,11 @@
-node_modules
-.github
-test
 coverage
+node_modules
+tmp*
 
+.github
 .eslintignore
 .eslintrc.json
 .npmrc
 .travis.yml
-
-tmp*
+CODE_OF_CONDUCT.md
+test

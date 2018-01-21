@@ -6,7 +6,7 @@ _optional_ and _peer_ dependencies before working with them.
 > **The reason this module exists is to try a few non-standard**
 > **things with the npm registry (deprecating, publishing betas,**
 > **...).**
-> Feel free to use it, though - `tigerclaws-try-require` works
+> Feel free to use it, though - `semver-try-require` works
 > as advertised and is thoroughly tested.
 
 
@@ -17,7 +17,7 @@ But you just want to keep running if it ain't there.
 Do this:
 
 ```javascript
-const tryRequire = require('tigerclaws-try-require');
+const tryRequire = require('semver-try-require');
 
 // import typescript if there's a version >= 2 available
 const typescript = tryRequire('typescript', '>=2');
@@ -61,7 +61,7 @@ returns false in all other cases
 [MIT](LICENSE)
 
 ## Badge & flare section
-[![Build Status](https://travis-ci.org/sverweij/tigerclaws-try-require.svg?branch=master)](https://travis-ci.org/sverweij/tigerclaws-try-require)
-[![npm stable version](https://img.shields.io/npm/v/tigerclaws-try-require.svg)](https://npmjs.com/package/tigerclaws-try-require)
+[![Build Status](https://travis-ci.org/sverweij/semver-try-require.svg?branch=master)](https://travis-ci.org/sverweij/semver-try-require)
+[![npm stable version](https://img.shields.io/npm/v/semver-try-require.svg)](https://npmjs.com/package/semver-try-require)
 
 Made with :metal: in Holland

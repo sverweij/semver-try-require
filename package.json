@@ -1,5 +1,5 @@
 {
-  "name": "tigerclaws-try-require",
+  "name": "semver-try-require",
   "version": "1.0.4",
   "description": "micro module to require (versions of) modules that might not be there",
   "main": "src/index.js",
@@ -31,12 +31,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sverweij/tigerclaws-try-require"
+    "url": "git+https://github.com/sverweij/semver-try-require"
   },
   "bugs": {
-    "url": "https://github.com/sverweij/tigerclaws-try-require/issues"
+    "url": "https://github.com/sverweij/semver-try-require/issues"
   },
-  "homepage": "https://github.com/sverweij/tigerclaws-try-require",
+  "homepage": "https://github.com/sverweij/semver-try-require",
   "dependencies": {
     "semver": "5.5.0"
   },

@@ -1,47 +1,52 @@
 ## What's this then?
-A micro module that helps you to require (versions of) modules that might
-not be there.
+A micro module that helps you to require (versions of) modules
+that might not be there. Useful to test for the availability of
+_optional_ and _peer_ dependencies before working with them.
 
-> Although this module actually works, is thoroughly tested and is
-> useful in some situations, the primary reason I publish it is to 
-> try things out with the npm registry.
+> **The reason this module exists is to try a few non-standard**
+> **things with the npm registry (deprecating, publishing betas,**
+> **...).**
+> Feel free to use it, though - `tigerclaws-try-require` works
+> as advertised and is thoroughly tested.
 
 
 ## Example
-So you're in a situation where you might want to do stuff with the 
-typescript compiler. But you're not sure it, or the version of the
-compiler you'd need is there.
+So you made the typescript compiler (v2) an optional dependency.
+But you just want to keep running if it ain't there.
 
 Do this:
 
 ```javascript
-const tryRequire = require("tigerclaws-try-require");
-const typescript = tryRequire(
-    "typescript",
-    ">2"          // only interested in typescript version 2 and up
-);
+const tryRequire = require('tigerclaws-try-require');
 
-module.exports = {
-    isAvailable: () => typescript !== false,
+// import typescript if there's a version >= 2 available
+const typescript = tryRequire('typescript', '>=2');
 
-    transpile: pFile =>
-        typescript.transpileModule(
-            pFile,
-            {
-                compilerOptions: {
-                    "target": "es2015",
-                    "jsx": "react"
-                }
-            }
-        ).outputText
-};
+// now you can test if typescript is actually there
+const lProgram = 'const cube = x => x*x*x; console.log(cube(42))';
+
+if (typescript !== false) {
+    console.log(
+        typescript.transpileModule(lProgram, {}).outputText
+    );
+    // Result:
+    //   var cube = function (x) { return x * x * x; };
+    //   console.log(cube(42));
+} else {
+    // typescript >=2 not found - use fallback
+    console.log(
+        lProgram
+    );
+    // Result:
+    //    const cube = x => x*x*x; console.log(cube(42))
+}
 ```
 
 ## Signature
-### pModulename
+### `pModulename`
 The name of the module to resolve.
 
-### pSemVer
+### `pSemVer`
 A semantic version (range). Optional.
 
 ### return value
@@ -53,11 +58,9 @@ returns false in all other cases
 
 
 ## License
-
 [MIT](LICENSE)
 
-## Badges'n flare section
-
+## Badge & flare section
 [![Build Status](https://travis-ci.org/sverweij/tigerclaws-try-require.svg?branch=master)](https://travis-ci.org/sverweij/tigerclaws-try-require)
 [![npm stable version](https://img.shields.io/npm/v/tigerclaws-try-require.svg)](https://npmjs.com/package/tigerclaws-try-require)
 

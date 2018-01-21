@@ -63,5 +63,6 @@ returns false in all other cases
 ## Badge & flare section
 [![Build Status](https://travis-ci.org/sverweij/semver-try-require.svg?branch=master)](https://travis-ci.org/sverweij/semver-try-require)
 [![npm stable version](https://img.shields.io/npm/v/semver-try-require.svg)](https://npmjs.com/package/semver-try-require)
+[![bitHound Overall Score](https://www.bithound.io/github/sverweij/semver-try-require/badges/score.svg)](https://www.bithound.io/github/sverweij/semver-try-require)
 
 Made with :metal: in Holland

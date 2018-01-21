@@ -1,0 +1,18 @@
+
+{
+  "ignore": [
+    "types/**"
+  ],
+  "test": [
+    "test/**"
+  ],
+  "critics": {
+    "wc": { 
+      "limit": 6000
+    }
+  },
+  "dependencies": {
+    "unused-ignores": [
+    ]
+  }
+}

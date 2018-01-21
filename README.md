@@ -57,7 +57,7 @@ function in
 [dependency-cruiser ](https://github.com/sverweij/dependency-cruiser)
 seemed like a good candidate as it was not a thing that'd be unique
 to dependency-cruiser, and would probably be easier to maintain on its
-own anyway. I named it tigerclaws-try-require until I realized the 
+own anyway. I named it `tigerclaws-try-require until I realized the 
 semver check was what distinguished it from the try-require things 
 out there.
 
@@ -70,7 +70,7 @@ languages.
 ## License
 [MIT](LICENSE)
 
-## Badge & flare section
+## Badge & flair section
 [![Build Status](https://travis-ci.org/sverweij/semver-try-require.svg?branch=master)](https://travis-ci.org/sverweij/semver-try-require)
 [![npm stable version](https://img.shields.io/npm/v/semver-try-require.svg)](https://npmjs.com/package/semver-try-require)
 [![bitHound Overall Score](https://www.bithound.io/github/sverweij/semver-try-require/badges/score.svg)](https://www.bithound.io/github/sverweij/semver-try-require)

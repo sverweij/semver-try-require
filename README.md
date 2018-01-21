@@ -1,14 +1,7 @@
 ## What's this then?
-A micro module that helps you to require (versions of) modules
+A micro module that helps you require (versions of) modules
 that might not be there. Useful to test for the availability of
 _optional_ and _peer_ dependencies before working with them.
-
-> **The reason this module exists is to try a few non-standard**
-> **things with the npm registry (deprecating, publishing betas,**
-> **...).**
-> Feel free to use it, though - `semver-try-require` works
-> as advertised and is thoroughly tested.
-
 
 ## Example
 So you made the typescript compiler (v2) an optional dependency.
@@ -56,6 +49,23 @@ The (resolved) module identified by pModuleName if:
 
 returns false in all other cases
 
+
+## History
+This module started to try a few non-run-of-the-mill things with the
+npm registry (deprecate, beta publishing, renaming). The tryRequire
+function in
+[dependency-cruiser ](https://github.com/sverweij/dependency-cruiser)
+seemed like a good candidate as it was not a thing that'd be unique
+to dependency-cruiser, and would probably be easier to maintain on its
+own anyway. I named it tigerclaws-try-require until I realized the 
+semver check was what distinguished it from the try-require things 
+out there.
+
+[dependency-cruiser ](https://github.com/sverweij/dependency-cruiser)
+now uses semver-try-require in the [transpiler wrappers](https://github.com/sverweij/dependency-cruiser/tree/develop/src/extract/transpile) 
+and it enables it to cruise typescript, coffeescript and livescript 
+code without having to ship the heavy duty compilers for these 
+languages.
 
 ## License
 [MIT](LICENSE)

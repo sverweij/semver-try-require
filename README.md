@@ -3,8 +3,8 @@ A micro module that helps you to require (versions of) modules that might
 not be there.
 
 > Although this module actually works, is thoroughly tested and is
-> useful in some situations the primary reason I publish it is to 
-> do some practice with npm things.
+> useful in some situations, the primary reason I publish it is to 
+> try things out with the npm registry.
 
 
 ## Example

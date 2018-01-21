@@ -1,7 +1,9 @@
 ## What's this then?
 A micro module that helps you require (versions of) modules
-that might not be there. Useful to test for the availability of
-_optional_ and _peer_ dependencies before working with them.
+that might not be there.
+
+Useful to test for the availability of _optional_ and _peer_ dependencies
+before working with them.
 
 ## Example
 So you made the typescript compiler (v2) an optional dependency.

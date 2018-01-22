@@ -14,5 +14,3 @@ declare const tryRequire:
  */
 (pModuleName: string, pSemVer?: string) => boolean | object;
 export = tryRequire;
-
-// export default (pModuleName: string, pSemVer?: string) => {}:object;

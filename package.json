@@ -1,49 +1,20 @@
 {
   "name": "tigerclaws-try-require",
-  "version": "1.0.4",
-  "description": "micro module to require (versions of) modules that might not be there",
-  "main": "src/index.js",
-  "scripts-info": {
-    "update-dependencies": "ups npm dependencies to latest, then runs a lint:fix, a regression test and a security scan"
-  },
-  "scripts": {
-    "check": "npm-run-all  --parallel lint:fix test node-security",
-    "lint": "eslint src test",
-    "lint:fix": "eslint --fix src test",
-    "node-security": "nsp check",
-    "npm-check-updates": "ncu --upgrade",
-    "test": "mocha --bail --reporter dot test/*.spec.js",
-    "test:cover": "istanbul cover node_modules/mocha/bin/_mocha -- test/*.spec.js",
-    "update-dependencies": "npm-run-all npm-check-updates check"
-  },
+  "version": "1.0.5",
+  "description": "This module was renamed to semver-try-require",
   "keywords": [],
   "author": "Sander Verweij (https://sverweij.github.io/)",
   "license": "MIT",
-  "devDependencies": {
-    "chai": "4.1.2",
-    "eslint": "4.16.0",
-    "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-mocha": "4.11.0",
-    "eslint-plugin-node": "5.2.1",
-    "eslint-plugin-security": "1.4.0",
-    "istanbul": "0.4.5",
-    "mocha": "5.0.0",
-    "npm-check-updates": "2.14.0",
-    "npm-run-all": "4.1.2",
-    "nsp": "3.1.0"
-  },
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sverweij/tigerclaws-try-require"
+    "url": "git+https://github.com/sverweij/semver-try-require"
   },
   "bugs": {
-    "url": "https://github.com/sverweij/tigerclaws-try-require/issues"
+    "url": "https://github.com/sverweij/semver-try-require/issues"
   },
-  "homepage": "https://github.com/sverweij/tigerclaws-try-require",
+  "homepage": "https://github.com/sverweij/semver-try-require",
   "dependencies": {
-    "semver": "5.5.0"
-  },
-  "engines": {
-    "node": ">=4"
+    "semver-try-require": "latest"
   }
 }

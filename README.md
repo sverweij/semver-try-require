@@ -59,11 +59,11 @@ function in
 [dependency-cruiser ](https://github.com/sverweij/dependency-cruiser)
 seemed like a good candidate as it was not a thing that'd be unique
 to dependency-cruiser, and would probably be easier to maintain on its
-own anyway. I named it `tigerclaws-try-require until I realized the 
-semver check was what distinguished it from the try-require things 
-out there.
+own anyway. I named it `tigerclaws-try-require` until I realized the 
+_semver_ check was what distinguished it from the other try-require
+like npm modules out there.
 
-[dependency-cruiser ](https://github.com/sverweij/dependency-cruiser)
+[dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
 now uses semver-try-require in the [transpiler wrappers](https://github.com/sverweij/dependency-cruiser/tree/develop/src/extract/transpile) 
 and it enables it to cruise typescript, coffeescript and livescript 
 code without having to ship the heavy duty compilers for these 

@@ -12,5 +12,5 @@ declare const tryRequire:
  * @return {object}             the (resolved) module identified by pModuleName
  *                              or false
  */
-(pModuleName: string, pSemVer?: string) => boolean | object;
+(pModuleName: string, pSemVer?: string) => boolean | any;
 export = tryRequire;

@@ -61,7 +61,7 @@
     "all": true
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "types": "types/index.d.ts"
 }

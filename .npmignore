@@ -4,7 +4,7 @@ node_modules
 npm-debug.log
 tmp*
 
-.bithoundrc
+.codeclimate.yml
 .github
 .eslintignore
 .eslintrc.json

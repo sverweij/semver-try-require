@@ -323,5 +323,18 @@
     "env": {
         "node": true,
         "es6": true
-    }
+    },
+    "overrides": [
+        {
+            "files": ["test/**/*.js"],
+            "rules": {
+                "node/no-unpublished-require": ["error", {
+                    "allowModules": ["chai"]
+                }]
+            },
+            "env": {
+                "mocha": true
+            }
+        }
+    ]
 }

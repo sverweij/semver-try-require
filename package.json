@@ -3,6 +3,13 @@
   "version": "2.0.0",
   "description": "micro module to require (versions of) modules that might not be there",
   "main": "src/index.js",
+  "files": [
+    "src/",
+    "types/",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "check": "npm-run-all --parallel lint test:cover",
     "check:full": "npm-run-all --parallel check check:outdated",

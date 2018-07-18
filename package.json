@@ -68,5 +68,6 @@
   "engines": {
     "node": ">=6"
   },
-  "types": "types/index.d.ts"
+  "types": "types/index.d.ts",
+  "eslintIgnore": ["node_modules"]
 }

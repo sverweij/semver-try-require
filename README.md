@@ -76,7 +76,5 @@ languages.
 [![Build Status](https://travis-ci.org/sverweij/semver-try-require.svg?branch=master)](https://travis-ci.org/sverweij/semver-try-require)
 [![npm stable version](https://img.shields.io/npm/v/semver-try-require.svg)](https://npmjs.com/package/semver-try-require)
 [![total downloads on npm](https://img.shields.io/npm/dt/semver-try-require.svg?maxAge=2591999)](https://npmjs.com/package/semver-try-require)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a2d528342e5174d51609/maintainability)](https://codeclimate.com/github/sverweij/semver-try-require/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a2d528342e5174d51609/test_coverage)](https://codeclimate.com/github/sverweij/semver-try-require/test_coverage)
 
 Made with :metal: in Holland

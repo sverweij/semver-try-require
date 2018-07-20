@@ -19,10 +19,13 @@ module.exports = (pModuleName, pSemVer) => {
 
     try {
         lRetval = require(pModuleName);
+
         if (
             Boolean(pSemVer) &&
             !semver.satisfies(
-                require(path.join(pModuleName, 'package.json')).version,
+                semver.coerce(
+                    require(path.join(pModuleName, 'package.json')).version
+                ).version,
                 pSemVer
             )
         ) {

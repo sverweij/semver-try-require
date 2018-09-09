@@ -28,10 +28,13 @@
   "devDependencies": {
     "chai": "4.1.2",
     "eslint": "5.5.0",
+    "eslint-config-standard": "12.0.0",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-mocha": "5.2.0",
     "eslint-plugin-node": "7.0.1",
+    "eslint-plugin-promise": "4.0.1",
     "eslint-plugin-security": "1.4.0",
+    "eslint-plugin-standard": "4.0.0",
     "mocha": "5.2.0",
     "npm-run-all": "4.1.3",
     "nyc": "13.0.1",
@@ -69,6 +72,77 @@
     "node": ">=6"
   },
   "types": "types/index.d.ts",
+  "eslintConfig": {
+    "extends": "standard",
+    "plugins": [
+      "security",
+      "mocha"
+    ],
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "overrides": [
+      {
+        "files": [
+          "test/**/*.js"
+        ],
+        "rules": {
+          "node/no-unpublished-require": [
+            "error",
+            {
+              "allowModules": [
+                "chai"
+              ]
+            }
+          ]
+        },
+        "env": {
+          "mocha": true
+        }
+      }
+    ],
+    "rules": {
+      "complexity": [
+        "warn",
+        4
+      ],
+      "mocha/handle-done-callback": "error",
+      "mocha/max-top-level-suites": [
+        "warn",
+        {
+          "limit": "10"
+        }
+      ],
+      "mocha/no-exclusive-tests": "error",
+      "mocha/no-global-tests": "error",
+      "mocha/no-hooks": "off",
+      "mocha/no-hooks-for-single-case": "warn",
+      "mocha/no-identical-title": "warn",
+      "mocha/no-mocha-arrows": "off",
+      "mocha/no-nested-tests": "error",
+      "mocha/no-pending-tests": "warn",
+      "mocha/no-return-and-callback": "error",
+      "mocha/no-sibling-hooks": "error",
+      "mocha/no-skipped-tests": "error",
+      "mocha/no-synchronous-tests": "off",
+      "mocha/no-top-level-hooks": "error",
+      "mocha/valid-suite-description": "error",
+      "mocha/valid-test-description": "off",
+      "security/detect-unsafe-regex": "error",
+      "security/detect-buffer-noassert": "error",
+      "security/detect-child-process": "error",
+      "security/detect-disable-mustache-escape": "error",
+      "security/detect-eval-with-expression": "error",
+      "security/detect-no-csrf-before-method-override": "error",
+      "security/detect-non-literal-fs-filename": "off",
+      "security/detect-non-literal-regexp": "error",
+      "security/detect-non-literal-require": "error",
+      "security/detect-object-injection": "error",
+      "security/detect-possible-timing-attacks": "error",
+      "security/detect-pseudoRandomBytes": "error"
+    }
+  },
   "eslintIgnore": [
     "node_modules"
   ]

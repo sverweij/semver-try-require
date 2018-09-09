@@ -1,6 +1,5 @@
-"use strict";
-const path   = require('path');
-const semver = require('semver');
+const path = require('path')
+const semver = require('semver')
 
 /**
  * returns the (resolved) module identified by pModuleName:
@@ -15,27 +14,27 @@ const semver = require('semver');
  *                              or false
  */
 module.exports = (pModuleName, pSemVer) => {
-    let lRetval = false;
+  let lRetval = false
 
-    try {
-        lRetval = require(pModuleName);
+  try {
+    lRetval = require(pModuleName)
 
-        if (
-            Boolean(pSemVer) &&
-            !semver.satisfies(
-                semver.coerce(
-                    require(path.join(pModuleName, 'package.json')).version
-                ).version,
-                pSemVer
-            )
-        ) {
-            lRetval = false;
-        }
-    } catch (e) {
-        lRetval = false;
+    if (
+      Boolean(pSemVer) &&
+        !semver.satisfies(
+          semver.coerce(
+            require(path.join(pModuleName, 'package.json')).version
+          ).version,
+          pSemVer
+        )
+    ) {
+      lRetval = false
     }
-    return lRetval;
-};
+  } catch (e) {
+    lRetval = false
+  }
+  return lRetval
+}
 
 /*
   eslint

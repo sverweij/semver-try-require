@@ -1,5 +1,5 @@
 {
-    "name": "rc-fixtures",
+    "name": "rc-fixture",
     "description": "test if release candidates are correctly detected as well",
     "version": "3.0.0-rc",
     "main": "./index.js"

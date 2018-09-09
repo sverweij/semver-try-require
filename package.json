@@ -11,13 +11,12 @@
     "README.md"
   ],
   "scripts": {
-    "check": "npm-run-all --parallel lint test:cover",
+    "check": "npm-run-all --parallel lint test",
     "check:full": "npm-run-all --parallel check check:outdated",
     "check:outdated": "npm outdated",
     "lint": "eslint src test",
     "lint:fix": "eslint --fix src test",
-    "test": "mocha test/*.spec.js",
-    "test:cover": "nyc --check-coverage npm test",
+    "test": "jest --collectCoverage",
     "update-dependencies": "npm-run-all upem:update upem:install lint:fix check",
     "upem:update": "npm outdated --json | upem",
     "upem:install": "npm install"
@@ -26,18 +25,15 @@
   "author": "Sander Verweij (https://sverweij.github.io/)",
   "license": "MIT",
   "devDependencies": {
-    "chai": "4.1.2",
     "eslint": "5.5.0",
     "eslint-config-standard": "12.0.0",
     "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-mocha": "5.2.0",
     "eslint-plugin-node": "7.0.1",
     "eslint-plugin-promise": "4.0.1",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-standard": "4.0.0",
-    "mocha": "5.2.0",
+    "jest": "23.5.0",
     "npm-run-all": "4.1.3",
-    "nyc": "13.0.1",
     "upem": "1.0.0"
   },
   "repository": {
@@ -51,22 +47,29 @@
   "dependencies": {
     "semver": "5.5.1"
   },
-  "nyc": {
-    "statements": 100,
-    "branches": 100,
-    "functions": 100,
-    "lines": 100,
-    "exclude": [
-      "test/**/*",
-      "coverage/**/*",
-      "tmp*"
-    ],
-    "reporter": [
+  "jest": {
+    "clearMocks": true,
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
       "text-summary",
-      "html",
-      "lcov"
+      "lcov",
+      "html"
     ],
-    "all": true
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "exclude": [
+          "test/**/*",
+          "coverage/**/*",
+          "tmp*"
+        ],
+        "all": true
+      }
+    }
   },
   "engines": {
     "node": ">=6"
@@ -75,8 +78,7 @@
   "eslintConfig": {
     "extends": "standard",
     "plugins": [
-      "security",
-      "mocha"
+      "security"
     ],
     "env": {
       "node": true,
@@ -87,18 +89,8 @@
         "files": [
           "test/**/*.js"
         ],
-        "rules": {
-          "node/no-unpublished-require": [
-            "error",
-            {
-              "allowModules": [
-                "chai"
-              ]
-            }
-          ]
-        },
         "env": {
-          "mocha": true
+          "jest": true
         }
       }
     ],
@@ -107,28 +99,6 @@
         "warn",
         4
       ],
-      "mocha/handle-done-callback": "error",
-      "mocha/max-top-level-suites": [
-        "warn",
-        {
-          "limit": "10"
-        }
-      ],
-      "mocha/no-exclusive-tests": "error",
-      "mocha/no-global-tests": "error",
-      "mocha/no-hooks": "off",
-      "mocha/no-hooks-for-single-case": "warn",
-      "mocha/no-identical-title": "warn",
-      "mocha/no-mocha-arrows": "off",
-      "mocha/no-nested-tests": "error",
-      "mocha/no-pending-tests": "warn",
-      "mocha/no-return-and-callback": "error",
-      "mocha/no-sibling-hooks": "error",
-      "mocha/no-skipped-tests": "error",
-      "mocha/no-synchronous-tests": "off",
-      "mocha/no-top-level-hooks": "error",
-      "mocha/valid-suite-description": "error",
-      "mocha/valid-test-description": "off",
       "security/detect-unsafe-regex": "error",
       "security/detect-buffer-noassert": "error",
       "security/detect-child-process": "error",

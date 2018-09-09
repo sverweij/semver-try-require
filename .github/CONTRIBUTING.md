@@ -10,13 +10,9 @@ To make this as easy as possible for you, here's some simple guidelines:
     proposals
   - [GitHub's issue tracker](https://github.com/sverweij/try-require/issues)
     is the easiest way to submit them.
-- We prefer bug reports in  **_steps taken_ - _expected_ - _found_** format.
-  -  that makes it more easy to reproduce it, and concoct a solution that fits
-     your expectation.
-  - If applicable, it is also nice when you provide
-    - the **input** you used and
-    - the **environment** (browser version/ os, or node.js version + os).
-  - [template](./ISSUE_TEMPLATE.md)
+- We've made a [template](./ISSUE_TEMPLATE.md) to make it more easy for you to
+  report an issue - it'll also help in getting a faster response (/ and possibly
+  a fix as well).
 - In turn, we try to **respond within a week**.    
   This might or might not include an actual code fix.
 
@@ -26,11 +22,12 @@ To make this as easy as possible for you, here's some simple guidelines:
   based on the most recent version of the **develop** branch.
 - Code quality
     - Additions pass eslint and depcruise (as configured for this repo)
-    - Mocha tests prove your code does what it intends.
-    - Your code does not introduce regressions - ```make fullcheck``` proves
+    - Unit tests prove your code does what it intends (we use jest).
+    - Your code does not introduce regressions - ```npm run check``` proves
       this.
     - Code style (you know, petty things like indentations, where brackets go,
       how variables & parameters are named) fits in with the current code base.
+      (tip: use `npm run lint:fix`)
 - Plan to do something drastic?     
   Leave an [issue](https://github.com/sverweij/try-require/issues/new)
   on GitHub, so we can talk about it

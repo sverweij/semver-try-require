@@ -22,7 +22,7 @@ describe('tryRequire', () => {
     'returns the module if it is resolvable and satisfies specified semver',
     () => {
       expect(
-        tryRequire('semver', '>=5.0.0 <6.0.0')
+        tryRequire('semver', '>=5.0.0 <7.0.0')
       ).toEqual(semver)
     }
   )

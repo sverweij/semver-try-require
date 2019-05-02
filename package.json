@@ -34,7 +34,7 @@
     "eslint-plugin-standard": "4.0.0",
     "jest": "24.7.1",
     "npm-run-all": "4.1.5",
-    "upem": "2.0.0"
+    "upem": "2.0.1"
   },
   "repository": {
     "type": "git",

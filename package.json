@@ -32,11 +32,11 @@
   "author": "Sander Verweij (https://sverweij.github.io/)",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "5.16.0",
+    "eslint": "6.0.1",
     "eslint-config-standard": "12.0.0",
-    "eslint-plugin-import": "2.17.3",
+    "eslint-plugin-import": "2.18.0",
     "eslint-plugin-node": "9.1.0",
-    "eslint-plugin-promise": "4.1.1",
+    "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-standard": "4.0.0",
     "jest": "24.8.0",
@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/sverweij/semver-try-require",
   "dependencies": {
-    "semver": "6.1.1"
+    "semver": "6.1.2"
   },
   "jest": {
     "clearMocks": true,

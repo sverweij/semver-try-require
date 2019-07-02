@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/sverweij/semver-try-require",
   "dependencies": {
-    "semver": "6.1.2"
+    "semver": "6.2.0"
   },
   "jest": {
     "clearMocks": true,

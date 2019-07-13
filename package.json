@@ -32,10 +32,10 @@
   "author": "Sander Verweij (https://sverweij.github.io/)",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "6.0.1",
+    "eslint": "5.16.0",
     "eslint-config-standard": "12.0.0",
     "eslint-plugin-import": "2.18.0",
-    "eslint-plugin-node": "9.1.0",
+    "eslint-plugin-node": "8.0.1",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-standard": "4.0.0",
@@ -50,8 +50,16 @@
         "because": "2.1.1 is the last version still supporting node 6 - which semver-try-require still runs on"
       },
       {
+        "package": "eslint",
+        "because": "in version 13 it drops support for node 6"
+      },
+      {
         "package": "eslint-config-standard",
         "because": "in version 13 it drops support for node 6"
+      },
+      {
+        "package": "eslint-plugin-node",
+        "because": "in version 9 it drops support for node 6"
       }
     ]
   },

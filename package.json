@@ -43,26 +43,6 @@
     "npm-run-all": "4.1.5",
     "upem": "2.1.1"
   },
-  "upem": {
-    "donotup": [
-      {
-        "package": "upem",
-        "because": "2.1.1 is the last version still supporting node 6 - which semver-try-require still runs on"
-      },
-      {
-        "package": "eslint",
-        "because": "in version 13 it drops support for node 6"
-      },
-      {
-        "package": "eslint-config-standard",
-        "because": "in version 13 it drops support for node 6"
-      },
-      {
-        "package": "eslint-plugin-node",
-        "because": "in version 9 it drops support for node 6"
-      }
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sverweij/semver-try-require"
@@ -99,7 +79,7 @@
     }
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "types": "types/index.d.ts",
   "eslintConfig": {

@@ -3,7 +3,6 @@ sudo: required
 language: node_js
 
 node_js:
-  - "6"
   - "8"
   - "10"
   - "12"
@@ -16,8 +15,8 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
-# script:
-#  - 'if test `node --version | cut -c 2,3` = 12; then npm run check:full; else npm test; fi'
+script:
+ - 'if test `node --version | cut -c 2,3` = 12; then npm run check:full; else npm test; fi'
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

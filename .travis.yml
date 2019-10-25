@@ -6,6 +6,7 @@ node_js:
   - "8"
   - "10"
   - "12"
+  - "13"
 
 install:
   - npm install
@@ -16,7 +17,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
- - 'if test `node --version | cut -c 2,3` = 12; then npm run check:full; else npm test; fi'
+ - 'if test `node --version | cut -c 2,3` = 13; then npm run check:full; else npm test; fi'
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

@@ -46,7 +46,7 @@ jobs:
           node-version: ${{matrix.node-version}}
       - name: install
         run: |
-          echo ${{env.cache-hit}}
+          echo ${{cache-hit}}
           node --version
           npm install
       - name: lint and test

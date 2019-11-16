@@ -13,13 +13,13 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
-          - ^8.12
-          - 10.x
-          - 12.x
+          # - ^8.12
+          # - 10.x
+          # - 12.x
           - 13.x
         platform:
           - ubuntu-latest
-          - windows-latest
+          # - windows-latest
         exclude:
           - node-version: ^8.12
             platform: windows-latest
@@ -46,7 +46,7 @@ jobs:
           node-version: ${{matrix.node-version}}
       - name: install
         run: |
-          echo ${{env}}
+          echo ${{env.cache-hit}}
           node --version
           npm install
       - name: lint and test

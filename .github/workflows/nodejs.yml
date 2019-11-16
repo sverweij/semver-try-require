@@ -48,11 +48,11 @@ jobs:
         run: |
           node --version
           npm install
-      - name: lint and test
+      - name: lint
         run: |
           node --version
           npm run lint
-      - name: lint and test
+      - name: test
         run: |
           node --version
           npm test

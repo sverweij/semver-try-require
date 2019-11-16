@@ -47,8 +47,8 @@ jobs:
       - name: install
         run: |
           # echo cache-hit ${{cache-hit}}
-          echo env-cache-hit ${{env.cache-hit}}
-          echo env ${{env}}
+          echo ${{env.cache-hit}}
+          echo ${{env}}
           node --version
           npm install
       - name: lint and test

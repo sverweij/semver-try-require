@@ -32,13 +32,13 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: cache node modules
+      - name: cache node modules for ${{matrix.node-version}}@${{matrix.platform}}
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ matrix.node-version }}@${{ matrix.platform }}-build-${{ hashFiles('package.json') }}
+          key: ${{matrix.node-version}}@${{matrix.platform}}-build-${{hashFiles('package.json')}}
           restore-keys: |
-            ${{ matrix.node-version}}@${{ matrix.platform }}-build-
+            ${{matrix.node-version}}@${{matrix.platform}}-build-
       - name: set up node ${{matrix.node-version}}@${{matrix.platform}}
         uses: actions/setup-node@v1
         with:

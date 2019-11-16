@@ -46,8 +46,6 @@ jobs:
           node-version: ${{matrix.node-version}}
       - name: install
         run: |
-          # echo cache-hit ${{cache-hit}}
-          # echo ${{env.cache-hit}}
           echo ${{env}}
           node --version
           npm install

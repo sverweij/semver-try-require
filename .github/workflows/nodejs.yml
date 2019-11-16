@@ -1,25 +1,60 @@
-name: Node CI
+name: install, lint and test
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [8.x, 10.x, 12.x, 13.x]
+        node-version:
+          - ^8.12
+          - 10.x
+          - 12.x
+          - 13.x
+        platform:
+          - ubuntu-latest
+          - windows-latest
+        exclude:
+          - node-version: ^8.12
+            platform: windows-latest
+          - node-version: 10.x
+            platform: windows-latest
+          - node-version: 13.x
+            platform: windows-latest
+
+    runs-on: ${{matrix.platform}}
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run check
-      env:
-        CI: true
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: cache node modules for ${{matrix.node-version}}@${{matrix.platform}}
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{matrix.node-version}}@${{matrix.platform}}-build-${{hashFiles('package.json')}}
+          restore-keys: |
+            ${{matrix.node-version}}@${{matrix.platform}}-build-
+      - name: set up node ${{matrix.node-version}}@${{matrix.platform}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: install
+        run: |
+          node --version
+          npm install
+        shell: bash
+      - name: lint
+        run: |
+          node --version
+          npm run lint
+        shell: bash
+      - name: test
+        run: |
+          node --version
+          npm test
+        shell: bash

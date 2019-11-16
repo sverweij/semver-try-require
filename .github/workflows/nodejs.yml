@@ -43,15 +43,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{matrix.node-version}}
+        shell: bash
       - name: install
         run: |
           node --version
           npm install
+        shell: bash
       - name: lint
         run: |
           node --version
           npm run lint
+        shell: bash
       - name: test
         run: |
           node --version
           npm test
+        shell: bash

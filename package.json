@@ -10,6 +10,32 @@
     "package.json",
     "README.md"
   ],
+  "keywords": [],
+  "author": "Sander Verweij (https://sverweij.github.io/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sverweij/semver-try-require"
+  },
+  "bugs": {
+    "url": "https://github.com/sverweij/semver-try-require/issues"
+  },
+  "homepage": "https://github.com/sverweij/semver-try-require",
+  "dependencies": {
+    "semver": "6.3.0"
+  },
+  "devDependencies": {
+    "eslint": "6.7.2",
+    "eslint-config-standard": "14.1.0",
+    "eslint-plugin-import": "2.19.1",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-security": "1.4.0",
+    "eslint-plugin-standard": "4.0.1",
+    "jest": "24.9.0",
+    "npm-run-all": "4.1.5",
+    "upem": "3.1.2"
+  },
   "scripts": {
     "check": "npm-run-all --parallel lint test",
     "check:full": "npm-run-all --parallel check check:outdated",
@@ -28,31 +54,13 @@
     "upem:update": "npm outdated --json | upem",
     "upem:install": "npm install"
   },
-  "keywords": [],
-  "author": "Sander Verweij (https://sverweij.github.io/)",
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "6.7.1",
-    "eslint-config-standard": "14.1.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-node": "10.0.0",
-    "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-security": "1.4.0",
-    "eslint-plugin-standard": "4.0.1",
-    "jest": "24.9.0",
-    "npm-run-all": "4.1.5",
-    "upem": "3.1.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sverweij/semver-try-require"
-  },
-  "bugs": {
-    "url": "https://github.com/sverweij/semver-try-require/issues"
-  },
-  "homepage": "https://github.com/sverweij/semver-try-require",
-  "dependencies": {
-    "semver": "6.3.0"
+  "upem": {
+    "donotup": [
+      {
+        "package": "semver",
+        "because": "semver >=7 drops support for node 8, which is still supported by nodejs and hence by semver-try-require"
+      }
+    ]
   },
   "jest": {
     "clearMocks": true,

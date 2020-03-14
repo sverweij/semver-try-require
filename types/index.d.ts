@@ -1,5 +1,3 @@
-
-declare const tryRequire:
 /**
  * returns the (resolved) module identified by pModuleName:
  * - if it is available, and
@@ -12,5 +10,8 @@ declare const tryRequire:
  * @return {object}             the (resolved) module identified by pModuleName
  *                              or false
  */
-(pModuleName: string, pSemVer?: string) => boolean | any;
+declare const tryRequire: (
+  pModuleName: string,
+  pSemVer?: string
+) => boolean | any;
 export = tryRequire;

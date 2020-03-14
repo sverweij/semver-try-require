@@ -16,7 +16,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
- - 'if test `node --version | cut -c 2,3` = 13; then npm run check; else npm test; fi'
+  - "if test `node --version | cut -c 2,3` = 13; then npm run check; else npm test; fi"
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

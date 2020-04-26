@@ -22,21 +22,22 @@
   },
   "homepage": "https://github.com/sverweij/semver-try-require",
   "dependencies": {
-    "semver": "6.3.0"
+    "semver": "7.3.2"
   },
   "devDependencies": {
     "eslint": "6.8.0",
-    "eslint-config-moving-meadow": "1.1.1",
-    "eslint-config-prettier": "6.10.1",
-    "eslint-plugin-budapestian": "1.1.1",
-    "eslint-plugin-import": "2.20.1",
+    "eslint-config-moving-meadow": "2.0.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-budapestian": "2.0.0",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-jest": "23.8.2",
     "eslint-plugin-mocha": "6.3.0",
-    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-node": "11.1.0",
     "eslint-plugin-security": "1.4.0",
-    "eslint-plugin-unicorn": "15.0.1",
-    "jest": "25.1.0",
+    "eslint-plugin-unicorn": "19.0.1",
+    "jest": "25.4.0",
     "npm-run-all": "4.1.5",
-    "prettier": "1.19.1",
+    "prettier": "2.0.5",
     "upem": "3.1.2"
   },
   "scripts": {
@@ -47,8 +48,8 @@
     "lint:eslint": "eslint src test",
     "lint:fix": "npm-run-all lint:fix:eslint prettier:fix",
     "lint:fix:eslint": "eslint --fix src test",
-    "prettier": "prettier --loglevel warn --check {src,test}/\\*\\*/\\*.{js,json} \\*.{md,yml,json} types/\\*",
-    "prettier:fix": "prettier --loglevel warn --write {src,test}/\\*\\*/\\*.{js,json} \\*.{md,yml,json} types/\\*",
+    "prettier": "prettier --loglevel warn --check src/**/*.js test/**/*.{js,json} *.{md,yml,json} types/*",
+    "prettier:fix": "prettier --loglevel warn --write src/**/*.js test/**/*.{js,json} *.{md,yml,json} types/*",
     "scm:push": "run-p --aggregate-output scm:push:*",
     "scm:push:github": "run-p --aggregate-output scm:push:github:*",
     "scm:push:github:commits": "git push",
@@ -60,22 +61,6 @@
     "update-dependencies": "npm-run-all upem:update upem:install lint:fix check",
     "upem:update": "npm outdated --json | upem",
     "upem:install": "npm install"
-  },
-  "upem": {
-    "donotup": [
-      {
-        "package": "eslint-plugin-unicorn",
-        "because": "eslint-plugin-unicorn 17 drops support for node 8, which is still supported by semver-try-require"
-      },
-      {
-        "package": "prettier",
-        "because": "prettier 2 drops support for node 8, which is still supported by semver-try-require"
-      },
-      {
-        "package": "semver",
-        "because": "semver >=7 drops support for node 8, which is still supported by semver-try-require"
-      }
-    ]
   },
   "jest": {
     "clearMocks": true,
@@ -102,7 +87,7 @@
     }
   },
   "engines": {
-    "node": ">=8"
+    "node": "^10||^12||>=13"
   },
   "types": "types/index.d.ts",
   "eslintConfig": {
@@ -127,7 +112,7 @@
         4
       ],
       "security/detect-non-literal-require": "off",
-      "global-require": "off",
+      "node/global-require": "off",
       "import/no-dynamic-require": "off",
       "import/order": "warn"
     }

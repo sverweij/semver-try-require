@@ -1,6 +1,6 @@
 {
   "name": "semver-try-require",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "micro module to require (versions of) modules that might not be there",
   "main": "src/index.js",
   "files": [

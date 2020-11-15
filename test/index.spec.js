@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 const semver = require("semver");
 const tryRequire = require("../src");
 const rcFixture = require("../test/rc-fixture");

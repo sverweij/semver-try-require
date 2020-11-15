@@ -1,5 +1,11 @@
 const path = require("path");
 const semver = require("semver");
+const extractRootModuleName = require("./extract-root-module-name");
+
+function getVersion(pModuleName) {
+  return require(path.join(extractRootModuleName(pModuleName), "package.json"))
+    .version;
+}
 
 /**
  * returns the (resolved) module identified by pModuleName:
@@ -21,11 +27,7 @@ module.exports = (pModuleName, pSemVer) => {
 
     if (
       Boolean(pSemVer) &&
-      !semver.satisfies(
-        semver.coerce(require(path.join(pModuleName, "package.json")).version)
-          .version,
-        pSemVer
-      )
+      !semver.satisfies(semver.coerce(getVersion(pModuleName)).version, pSemVer)
     ) {
       lReturnValue = false;
     }

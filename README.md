@@ -41,7 +41,7 @@ if (typescript !== false) {
 
 The name of the module to resolve.
 
-### `pSemVer`
+### `pSemanticVersion`
 
 A semantic version (range). Optional.
 

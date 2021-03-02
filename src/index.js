@@ -14,20 +14,23 @@ function getVersion(pModuleName) {
  *
  * returns false in all other cases
  *
- * @param  {string} pModuleName the name of the module to resolve
- * @param  {string} pSemVer     (optional) a semantic version (range)
- * @return {object}             the (resolved) module identified by pModuleName
- *                              or false
+ * @param  {string} pModuleName      the name of the module to resolve
+ * @param  {string} pSemanticVersion (optional) a semantic version (range)
+ * @return {any}                     the (resolved) module identified by pModuleName
+ *                                   or false
  */
-module.exports = (pModuleName, pSemVer) => {
+module.exports = (pModuleName, pSemanticVersion) => {
   let lReturnValue = false;
 
   try {
     lReturnValue = require(pModuleName);
 
     if (
-      Boolean(pSemVer) &&
-      !semver.satisfies(semver.coerce(getVersion(pModuleName)).version, pSemVer)
+      Boolean(pSemanticVersion) &&
+      !semver.satisfies(
+        semver.coerce(getVersion(pModuleName)).version,
+        pSemanticVersion
+      )
     ) {
       lReturnValue = false;
     }

@@ -1,5 +1,6 @@
 const path = require("path");
-const semver = require("semver");
+const satisfies = require("semver/functions/satisfies");
+const coerce = require("semver/functions/coerce");
 const extractRootModuleName = require("./extract-root-module-name");
 
 function getVersion(pModuleName) {
@@ -27,10 +28,7 @@ module.exports = (pModuleName, pSemanticVersion) => {
 
     if (
       Boolean(pSemanticVersion) &&
-      !semver.satisfies(
-        semver.coerce(getVersion(pModuleName)).version,
-        pSemanticVersion
-      )
+      !satisfies(coerce(getVersion(pModuleName)).version, pSemanticVersion)
     ) {
       lReturnValue = false;
     }

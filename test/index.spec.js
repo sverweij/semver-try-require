@@ -24,9 +24,7 @@ describe("tryRequire", () => {
   });
 
   it("returns false if it is resolvable but does not satisfy specified semver (with rc postfix)", () => {
-    expect(tryRequire("../test/rc-fixture", ">=2.0.0 <3.0.0")).toStrictEqual(
-      false
-    );
+    expect(tryRequire("../test/rc-fixture", ">=2.0.0 <3.0.0")).toBe(false);
   });
 
   it("returns the module if it is resolvable and satisfies specified semver (with beta postfix)", () => {
@@ -36,12 +34,10 @@ describe("tryRequire", () => {
   });
 
   it("returns false if it is resolvable but does not satisfy specified semver (with beta postfix)", () => {
-    expect(tryRequire("../test/beta-fixture", ">=2.0.0 <3.0.0")).toStrictEqual(
-      false
-    );
+    expect(tryRequire("../test/beta-fixture", ">=2.0.0 <3.0.0")).toBe(false);
   });
 
   it("returns false if it is resolvable but doesn't satisfy the specified semver", () => {
-    expect(tryRequire("semver", "<5.0.0")).toStrictEqual(false);
+    expect(tryRequire("semver", "<5.0.0")).toBe(false);
   });
 });

@@ -25,20 +25,20 @@
     "semver": "^7.3.5"
   },
   "devDependencies": {
-    "eslint": "8.2.0",
+    "eslint": "^8.10.0",
     "eslint-config-moving-meadow": "2.0.9",
-    "eslint-config-prettier": "8.3.0",
+    "eslint-config-prettier": "8.5.0",
     "eslint-plugin-budapestian": "3.0.1",
-    "eslint-plugin-import": "2.25.2",
-    "eslint-plugin-jest": "25.2.3",
-    "eslint-plugin-mocha": "9.0.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jest": "26.1.1",
+    "eslint-plugin-mocha": "10.0.3",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-security": "1.4.0",
-    "eslint-plugin-unicorn": "38.0.0",
-    "jest": "^27.1.0",
+    "eslint-plugin-unicorn": "41.0.0",
+    "jest": "^27.5.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
-    "upem": "7.0.0"
+    "prettier": "^2.5.1",
+    "upem": "^7.0.0"
   },
   "scripts": {
     "check": "npm-run-all --parallel lint test",

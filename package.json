@@ -22,23 +22,32 @@
   },
   "homepage": "https://github.com/sverweij/semver-try-require",
   "dependencies": {
-    "semver": "^7.3.5"
+    "semver": "^7.3.7"
   },
   "devDependencies": {
-    "eslint": "^8.10.0",
+    "eslint": "^8.13.0",
     "eslint-config-moving-meadow": "3.0.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-budapestian": "3.0.1",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jest": "26.1.2",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "26.1.4",
     "eslint-plugin-mocha": "10.0.3",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-security": "1.4.0",
-    "eslint-plugin-unicorn": "41.0.1",
+    "eslint-plugin-unicorn": "42.0.0",
     "jest": "^27.5.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.2",
     "upem": "^7.0.0"
+  },
+  "upem": {
+    "policies": [
+      {
+        "package": "eslint-plugin-mocha",
+        "policy": "pin",
+        "because": "https://github.com/lo1tuma/eslint-plugin-mocha/issues/322"
+      }
+    ]
   },
   "scripts": {
     "check": "npm-run-all --parallel lint test",

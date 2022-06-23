@@ -6,6 +6,13 @@ on:
       - main
   pull_request:
 
+env:
+  CI: true
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build:
     strategy:
@@ -23,37 +30,20 @@ jobs:
             platform: windows-latest
           - node-version: 16.x
             platform: windows-latest
-          - node-version: 18.x
-            platform: windows-latest
 
     runs-on: ${{matrix.platform}}
 
     steps:
-      - name: checkout
-        uses: actions/checkout@v1
-      - name: cache node modules for ${{matrix.node-version}}@${{matrix.platform}}
-        uses: actions/cache@v1
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{matrix.node-version}}@${{matrix.platform}}-build-${{hashFiles('package.json')}}
           restore-keys: |
             ${{matrix.node-version}}@${{matrix.platform}}-build-
-      - name: set up node ${{matrix.node-version}}@${{matrix.platform}}
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
-      - name: install
-        run: |
-          node --version
-          npm install
-        shell: bash
-      - name: lint
-        run: |
-          node --version
-          npm run lint
-        shell: bash
-      - name: test
-        run: |
-          node --version
-          npm test
-        shell: bash
+      - run: npm install
+      - run: npm run lint
+      - run: npm test

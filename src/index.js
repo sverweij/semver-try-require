@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("node:path");
 const satisfies = require("semver/functions/satisfies");
 const coerce = require("semver/functions/coerce");
 const extractRootModuleName = require("./extract-root-module-name");

@@ -1,4 +1,5 @@
-const path = require("node:path");
+// eslint-disable-next-line unicorn/prefer-node-protocol
+const path = require("path");
 const satisfies = require("semver/functions/satisfies");
 const coerce = require("semver/functions/coerce");
 const extractRootModuleName = require("./extract-root-module-name");

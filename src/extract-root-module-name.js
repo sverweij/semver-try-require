@@ -1,3 +1,4 @@
+// @ts-check
 /* eslint-disable security/detect-non-literal-regexp */
 /**
  * returns the module name that likely contains the package.json
@@ -12,6 +13,10 @@ const PACKAGE_RE = "[^/]+";
 const SCOPED_PACKAGE_RE = "@[^/]+(/[^/]+)";
 const ROOT_MODULE_RE = new RegExp(`^(${SCOPED_PACKAGE_RE}|${PACKAGE_RE})`, "g");
 
+/**
+ * @param {string} pModuleName
+ * @returns {string=}
+ */
 module.exports = function extractRootModuleName(pModuleName) {
   if (
     pModuleName.match(LOCAL_MODULE_RE) ||

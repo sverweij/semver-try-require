@@ -1,3 +1,4 @@
+// @ts-check
 const { strictEqual, deepStrictEqual } = require("node:assert");
 const semver = require("semver");
 const betaMock = require("./__mocks__/beta");

@@ -97,7 +97,7 @@
     "rules": {
       "complexity": [
         "warn",
-        4
+        6
       ],
       "security/detect-non-literal-require": "off",
       "node/global-require": "off",

@@ -5,13 +5,9 @@
  *
  * returns false in all other cases
  *
- * @param  {string} pModuleName the name of the module to resolve
- * @param  {string} pSemVer     (optional) a semantic version (range)
- * @return {object}             the (resolved) module identified by pModuleName
- *                              or false
+ * @param pModuleName the name of the module to resolve
+ * @param pSemVer     (optional) a semantic version (range)
+ * @return            the (resolved) module identified by pModuleName
+ *                    or false
  */
-declare const tryRequire: (
-  pModuleName: string,
-  pSemVer?: string
-) => boolean | any;
-export = tryRequire;
+export function tryRequire(pModuleName: string, pSemVer?: string): false | any;

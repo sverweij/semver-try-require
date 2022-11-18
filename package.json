@@ -67,7 +67,7 @@
     "upem:install": "npm install"
   },
   "engines": {
-    "node": "^12||^14||>=16"
+    "node": "^14||^16||>=18"
   },
   "types": "types/index.d.ts",
   "eslintConfig": {

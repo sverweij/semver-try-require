@@ -1,4 +1,5 @@
 // @ts-check
+// (yarn 1 pnp can't handle the node: protocol)
 // eslint-disable-next-line unicorn/prefer-node-protocol
 const path = require("path");
 const satisfies = require("semver/functions/satisfies");

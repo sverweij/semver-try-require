@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "c8": "7.12.0",
-    "eslint": "8.27.0",
+    "eslint": "8.28.0",
     "eslint-config-moving-meadow": "4.0.2",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-budapestian": "5.0.1",
@@ -60,7 +60,7 @@
     "scm:push:gitlab-mirror": "run-p --aggregate-output scm:push:gitlab-mirror:*",
     "scm:push:gitlab-mirror:commits": "git push gitlab-mirror",
     "scm:push:gitlab-mirror:tags": "git push --tags gitlab-mirror",
-    "test": "c8 --check-coverage --statements 100 --branches 100 --functions 100 --lines 100 --exclude \"{src/**/*.spec.js,src/__mocks__/*,.mocharc.js}\" --reporter text-summary --reporter html --reporter json-summary mocha",
+    "test": "NODE_OPTIONS=--no-warnings c8 --check-coverage --statements 100 --branches 100 --functions 100 --lines 100 --exclude \"{src/**/*.spec.js,src/__mocks__/}\" --reporter text-summary --reporter html --reporter json-summary mocha",
     "update-dependencies": "npm-run-all upem:update upem:install lint:fix check",
     "upem-outdated": "npm outdated --json --long | upem --dry-run",
     "upem:update": "npm outdated --json --long | upem | pbcopy && pbpaste",
@@ -69,42 +69,5 @@
   "engines": {
     "node": "^14||^16||>=18"
   },
-  "types": "types/index.d.ts",
-  "eslintConfig": {
-    "extends": "moving-meadow",
-    "env": {
-      "node": true,
-      "es6": true
-    },
-    "overrides": [
-      {
-        "files": [
-          "src/**/*.spec.js"
-        ],
-        "env": {
-          "mocha": true
-        }
-      },
-      {
-        "files": [
-          "src/__mocks__/**"
-        ],
-        "rules": {
-          "unicorn/no-empty-file": "off"
-        }
-      }
-    ],
-    "rules": {
-      "complexity": [
-        "warn",
-        6
-      ],
-      "security/detect-non-literal-require": "off",
-      "node/global-require": "off",
-      "import/no-dynamic-require": "off"
-    }
-  },
-  "eslintIgnore": [
-    "node_modules"
-  ]
+  "types": "types/index.d.ts"
 }

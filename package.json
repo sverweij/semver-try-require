@@ -60,7 +60,7 @@
     "scm:push:gitlab-mirror": "run-p --aggregate-output scm:push:gitlab-mirror:*",
     "scm:push:gitlab-mirror:commits": "git push gitlab-mirror",
     "scm:push:gitlab-mirror:tags": "git push --tags gitlab-mirror",
-    "test": "NODE_OPTIONS=--no-warnings c8 --check-coverage --statements 100 --branches 100 --functions 100 --lines 100 --exclude \"{src/**/*.spec.js,src/__mocks__/}\" --reporter text-summary --reporter html --reporter json-summary mocha",
+    "test": "c8 --no-warnings --check-coverage --statements 100 --branches 100 --functions 100 --lines 100 --exclude \"{src/**/*.spec.js,src/__mocks__/}\" --reporter text-summary --reporter html --reporter json-summary mocha",
     "update-dependencies": "npm-run-all upem:update upem:install lint:fix check",
     "upem-outdated": "npm outdated --json --long | upem --dry-run",
     "upem:update": "npm outdated --json --long | upem | pbcopy && pbpaste",

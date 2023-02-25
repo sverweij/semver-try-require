@@ -20,15 +20,12 @@ jobs:
       matrix:
         node-version:
           - 14.x
-          - 16.x
           - 18.x
         platform:
           - ubuntu-latest
           - windows-latest
         exclude:
           - node-version: 14.x
-            platform: windows-latest
-          - node-version: 16.x
             platform: windows-latest
 
     runs-on: ${{matrix.platform}}
@@ -45,5 +42,6 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - run: npm install
+      - run: npm run build
       - run: npm run lint
       - run: npm test

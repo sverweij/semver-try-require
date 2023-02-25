@@ -1,4 +1,5 @@
 module.exports = {
-  extension: ["js"],
-  spec: "src/**/*.spec.js",
+  extension: ["ts"],
+  spec: "src/**/*.spec.ts",
+  loader: "ts-node/esm",
 };

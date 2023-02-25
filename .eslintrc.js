@@ -1,6 +1,7 @@
 /* eslint-disable no-magic-numbers */
 module.exports = {
   root: true,
+  ignorePatterns: ["coverage", "dist", "node_modules"],
   extends: ["moving-meadow"],
   parserOptions: {
     ecmaVersion: "latest",
@@ -23,10 +24,12 @@ module.exports = {
       },
     },
   ],
+
   rules: {
     complexity: ["warn", 6],
     "security/detect-non-literal-require": "off",
     "node/global-require": "off",
     "import/no-dynamic-require": "off",
+    "node/no-missing-require": "off",
   },
 };

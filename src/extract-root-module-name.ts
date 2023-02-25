@@ -1,11 +1,3 @@
-// @ts-check
-
-/**
- * returns the module name that likely contains the package.json
- *
- * @param {string} pModuleName module name string as you'd require it
- */
-
 const LOCAL_MODULE_RE = /^[.]{1,2}($|\/.*)/g;
 const ABSOLUTE_MODULE_RE = /^\/.*/g;
 
@@ -15,10 +7,13 @@ const SCOPED_PACKAGE_RE = "@[^/]+(/[^/]+)";
 const ROOT_MODULE_RE = new RegExp(`^(${SCOPED_PACKAGE_RE}|${PACKAGE_RE})`, "g");
 
 /**
- * @param {string} pModuleName
- * @returns {string=}
+ * returns the module name that likely contains the package.json
+ *
+ * @param pModuleName module name string as you'd require it
  */
-module.exports = function extractRootModuleName(pModuleName) {
+export default function extractRootModuleName(
+  pModuleName: string
+): string | undefined {
   if (
     pModuleName.match(LOCAL_MODULE_RE) ||
     pModuleName.match(ABSOLUTE_MODULE_RE)
@@ -27,4 +22,4 @@ module.exports = function extractRootModuleName(pModuleName) {
   } else {
     return (pModuleName.match(ROOT_MODULE_RE) || []).shift();
   }
-};
+}

@@ -1,9 +1,8 @@
-// @ts-check
-const { strictEqual, deepStrictEqual } = require("node:assert");
-const semver = require("semver");
-const betaMock = require("./__mocks__/beta");
-const rcMock = require("./__mocks__/rc");
-const tryRequire = require(".");
+import { strictEqual, deepStrictEqual } from "node:assert";
+import semver from "semver";
+import betaMock from "./__mocks__/beta";
+import rcMock from "./__mocks__/rc";
+import tryRequire from ".";
 
 describe("tryRequire", () => {
   it("returns false for unresolvable modules", () => {

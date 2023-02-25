@@ -10,4 +10,7 @@
  * @return            the (resolved) module identified by pModuleName
  *                    or false
  */
-export function tryRequire(pModuleName: string, pSemVer?: string): false | any;
+export function tryRequire(
+  pModuleName: string,
+  pSemVer?: string
+): false | NodeModule;

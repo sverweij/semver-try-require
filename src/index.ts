@@ -1,18 +1,17 @@
-// @ts-check
 // (yarn 1 pnp can't handle the node: protocol)
 // eslint-disable-next-line unicorn/prefer-node-protocol
 const path = require("path");
 const satisfies = require("semver/functions/satisfies");
 const coerce = require("semver/functions/coerce");
-const extractRootModuleName = require("./extract-root-module-name");
+const extractRootModuleName = require("./extract-root-module-name").default;
 
 /**
  * @param {string} pModuleName
  * @returns {string}
  * @throws {Error}
  */
-function getVersion(pModuleName) {
-  // @ts-expect-error extractRootModuleName can return undefined will make require
+function getVersion(pModuleName: string): string {
+  // ts-expect-error extractRootModuleName can return undefined will make require
   // likely to throw. Not a problem - this will mean there's something seriously
   // awry and the tryRequire function's catch-all will ensure to return false
   // ('requiring failed') anyway.
@@ -29,14 +28,15 @@ function getVersion(pModuleName) {
  *
  * returns false in all other cases
  *
- * @param  {string} pModuleName      the name of the module to resolve
- * @param  {string} [pSemanticVersion] (optional) a semantic version (range)
- * @return {false | any}         the (resolved) module identified by pModuleName
- *                                   or false
+ * @param pModuleName      the name of the module to resolve
+ * @param pSemanticVersion (optional) a semantic version (range)
+ * @return the (resolved) module identified by pModuleName or false
  */
-module.exports = function tryRequire(pModuleName, pSemanticVersion) {
-  /** @type {false | any} */
-  let lReturnValue = false;
+function tryRequire(
+  pModuleName: string,
+  pSemanticVersion?: string
+): NodeModule | false {
+  let lReturnValue: NodeModule | false = false;
 
   try {
     lReturnValue = require(pModuleName);
@@ -56,4 +56,6 @@ module.exports = function tryRequire(pModuleName, pSemanticVersion) {
     lReturnValue = false;
   }
   return lReturnValue;
-};
+}
+export default tryRequire;
+module.exports = tryRequire;

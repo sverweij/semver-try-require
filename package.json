@@ -2,11 +2,11 @@
   "name": "semver-try-require",
   "version": "6.0.0",
   "description": "micro module to require (versions of) modules that might not be there",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "type": "commonjs",
   "files": [
-    "src/",
-    "!src/**/*.spec.js",
-    "!src/__mocks__/",
+    "dist/",
     "types/",
     "LICENSE",
     "package.json",
@@ -27,6 +27,10 @@
     "semver": "^7.3.8"
   },
   "devDependencies": {
+    "@types/mocha": "10.0.1",
+    "@types/semver": "7.3.13",
+    "@typescript-eslint/eslint-plugin": "5.53.0",
+    "@typescript-eslint/parser": "5.53.0",
     "c8": "7.12.0",
     "eslint": "8.28.0",
     "eslint-config-moving-meadow": "4.0.2",
@@ -41,9 +45,14 @@
     "mocha": "10.1.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.7.1",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.5",
     "upem": "7.3.1"
   },
   "scripts": {
+    "build": "npm-run-all build:clean build:compile",
+    "build:clean": "rm -rf dist",
+    "build:compile": "tsc",
     "check": "npm-run-all --parallel lint test",
     "check:full": "npm-run-all --parallel check check:outdated",
     "check:outdated": "npm outdated",
@@ -60,14 +69,15 @@
     "scm:push:gitlab-mirror": "run-p --aggregate-output scm:push:gitlab-mirror:*",
     "scm:push:gitlab-mirror:commits": "git push gitlab-mirror",
     "scm:push:gitlab-mirror:tags": "git push --tags gitlab-mirror",
-    "test": "c8 --no-warnings --check-coverage  mocha",
-    "update-dependencies": "npm-run-all upem:update upem:install lint:fix check",
+    "scm:stage": "git add .",
+    "test": "c8 mocha --no-warnings",
+    "update-dependencies": "npm-run-all upem:update upem:install lint:fix build check",
     "upem-outdated": "npm outdated --json --long | upem --dry-run",
     "upem:update": "npm outdated --json --long | upem | pbcopy && pbpaste",
-    "upem:install": "npm install"
+    "upem:install": "npm install",
+    "version": "npm-run-all --sequential build lint scm:stage"
   },
   "engines": {
     "node": "^14||^16||>=18"
-  },
-  "types": "types/index.d.ts"
+  }
 }

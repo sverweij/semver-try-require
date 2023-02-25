@@ -1,5 +1,5 @@
-const { strictEqual } = require("node:assert");
-const extractRootModuleName = require("./extract-root-module-name");
+import { strictEqual } from "node:assert";
+import extractRootModuleName from "./extract-root-module-name";
 
 describe("extract-root-module-name", () => {
   it("returns the local module name when passed that (same folder)", () => {

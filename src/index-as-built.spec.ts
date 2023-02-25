@@ -1,11 +1,10 @@
-// @ts-check
-const { strictEqual, deepStrictEqual } = require("node:assert");
-const semver = require("semver");
-const betaMock = require("./__mocks__/beta");
-const rcMock = require("./__mocks__/rc");
-const tryRequire = require(".");
+import { strictEqual, deepStrictEqual } from "node:assert";
+import semver from "semver";
+import betaMock from "./__mocks__/beta";
+import rcMock from "./__mocks__/rc";
+const tryRequire = require("../dist/index.js");
 
-describe("tryRequire", () => {
+describe("tryRequire - from the dist folder", () => {
   it("returns false for unresolvable modules", () => {
     strictEqual(tryRequire("thispackage-is-not-there"), false);
   });

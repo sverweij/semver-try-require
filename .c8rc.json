@@ -3,6 +3,7 @@
   "branches": 100,
   "functions": 100,
   "lines": 100,
-  "exclude": ["{src/**/*.spec.js,src/__mocks__/}"],
+  "extensions": [".ts", ".mts", ".mjs"],
+  "exclude": ["{src/**/*.spec.ts,src/**/*.spec.mts,src/node_modules/,./*.js}"],
   "reporter": ["text-summary", "html", "json-summary"]
 }

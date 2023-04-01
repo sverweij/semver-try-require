@@ -1,5 +1,4 @@
-// (yarn 1 pnp can't handle the node: protocol)
-// eslint-disable-next-line unicorn/prefer-node-protocol
+/* eslint-disable import/no-import-module-exports */
 import path from "path";
 import satisfies from "semver/functions/satisfies";
 import coerce from "semver/functions/coerce";
@@ -52,6 +51,7 @@ function tryRequire(
   }
   return lReturnValue;
 }
+// eslint-disable-next-line import/exports-last
 export default tryRequire;
 
 // for backwards compatibility. Otherwise our consumers in commonjs would need

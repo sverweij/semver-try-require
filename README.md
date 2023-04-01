@@ -1,12 +1,16 @@
 ## What's this then?
 
-A micro module that helps you require (versions of) modules
+A micro module that helps you require or import (versions of) modules
 that might not be there.
 
 Useful to test for the availability of _optional_ and _peer_ dependencies
 before working with them.
 
-## Example
+## Examples
+
+> See [ESM](#esm) below if you're using this in an ESM only context.
+
+### Commonjs
 
 So you made the typescript compiler (v2) an optional dependency.
 But you just want to keep running if it ain't there.
@@ -35,24 +39,32 @@ if (typescript !== false) {
 }
 ```
 
-## Signature
+### ESM
 
-### `pModulename`
+In ESM it's _almost_ the same, except there dynamic imports are always
+asynchronous, so you'll have to `await` it (or use promises):
 
-The name of the module to resolve.
+```javascript
+import tryImport from "semver-try-require";
 
-### `pSemanticVersion`
+// import typescript if there's a version >= 5 available.
+const typescript = await tryImport("typescript", >=5);
 
-A semantic version (range). Optional.
+// now you can test if typescript is actually there
+const lProgram = "const cube = x => x*x*x; console.log(cube(42))";
 
-### return value
-
-The (resolved) module identified by pModuleName if:
-
-- it is available, and
-- it satisfies the semantic version range specified by pSemVer
-
-returns false in all other cases
+if (typescript !== false) {
+  console.log(typescript.transpileModule(lProgram, {}).outputText);
+  // Result:
+  //   var cube = function (x) { return x * x * x; };
+  //   console.log(cube(42));
+} else {
+  // typescript >=5 not found - use fallback
+  console.log(lProgram);
+  // Result:
+  //    const cube = x => x*x*x; console.log(cube(42))
+}
+```
 
 ## History
 
@@ -83,3 +95,7 @@ languages.
 [![total downloads on npm](https://img.shields.io/npm/dt/semver-try-require.svg?maxAge=2591999)](https://npmjs.com/package/semver-try-require)
 
 Made with :metal: in Holland
+
+```
+
+```

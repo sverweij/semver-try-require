@@ -3,9 +3,9 @@
     "target": "ES2020",
 
     /* Modules */
-    "module": "commonjs",
+    "module": "NodeNext",
     "rootDir": "./src/",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "baseUrl": "./",
 
     /* JavaScript Support */
@@ -43,8 +43,8 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. => skipping saves ~50% build time*/
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.spec.ts", "src/__mocks__/"],
+  "include": ["src/**/*.ts", "src/**/*.mts"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.spec.mts", "src/node_modules/"],
   "ts-node": {
     "transpileOnly": true,
     "files": true

@@ -6,11 +6,11 @@
  * returns false in all other cases
  *
  * @param pModuleName the name of the module to resolve
- * @param pSemVer     (optional) a semantic version (range)
+ * @param pSemanticVersion     (optional) a semantic version (range)
  * @return            the (resolved) module identified by pModuleName
  *                    or false
  */
 export function tryRequire(
   pModuleName: string,
-  pSemVer?: string
+  pSemanticVersion?: string
 ): false | NodeModule;

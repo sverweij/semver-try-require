@@ -2,7 +2,9 @@
 module.exports = {
   root: true,
   ignorePatterns: ["coverage", "dist", "node_modules"],
-  extends: ["moving-meadow"],
+  plugins: ["@typescript-eslint"],
+  parser: "@typescript-eslint/parser",
+  extends: ["moving-meadow", "plugin:@typescript-eslint/recommended"],
   parserOptions: {
     ecmaVersion: "latest",
   },
@@ -12,24 +14,41 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["src/**/*.spec.js"],
-      env: {
-        mocha: true,
+      files: ["src/**/*.ts"],
+      rules: {
+        "node/file-extension-in-import": "off",
       },
     },
     {
-      files: ["src/__mocks__/**"],
+      files: ["src/**/*.spec.ts", "src/**/*.spec.mts"],
+      env: {
+        mocha: true,
+      },
       rules: {
-        "unicorn/no-empty-file": "off",
+        "node/no-extraneous-import": "off",
+      },
+    },
+    {
+      files: ["src/**/*.spec.ts"],
+      env: {
+        mocha: true,
+      },
+      rules: {
+        "node/file-extension-in-import": "off",
       },
     },
   ],
 
   rules: {
     complexity: ["warn", 6],
-    "security/detect-non-literal-require": "off",
-    "node/global-require": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "import/no-dynamic-require": "off",
+    "import/no-unresolved": "off",
+    "node/global-require": "off",
+    "node/no-missing-import": "off",
     "node/no-missing-require": "off",
+    "security/detect-non-literal-require": "off",
+    // still needs to support yarn 1 pnp, which borks on node protocol
+    "unicorn/prefer-node-protocol": "off",
   },
 };

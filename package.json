@@ -1,7 +1,14 @@
 {
   "name": "semver-try-require",
   "version": "6.1.0",
-  "description": "micro module to require (versions of) modules that might not be there",
+  "description": "micro module to require or import (versions of) modules that might not be there",
+  "exports": {
+    ".": {
+      "import": "./dist/try-import.mjs",
+      "require": "./dist/try-require.js",
+      "default": "./dist/try-require.js"
+    }
+  },
   "main": "dist/try-require.js",
   "types": "types/try-require.d.ts",
   "type": "commonjs",

@@ -3,7 +3,6 @@ const ABSOLUTE_MODULE_RE = /^\/.*/g;
 
 const PACKAGE_RE = "[^/]+";
 const SCOPED_PACKAGE_RE = "@[^/]+(/[^/]+)";
-// eslint-disable-next-line security/detect-non-literal-regexp
 const ROOT_MODULE_RE = new RegExp(`^(${SCOPED_PACKAGE_RE}|${PACKAGE_RE})`, "g");
 
 /**

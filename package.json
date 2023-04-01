@@ -2,8 +2,8 @@
   "name": "semver-try-require",
   "version": "6.1.0",
   "description": "micro module to require (versions of) modules that might not be there",
-  "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/try-require.js",
+  "types": "types/try-require.d.ts",
   "type": "commonjs",
   "files": [
     "dist/",

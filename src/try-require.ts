@@ -1,14 +1,17 @@
 // (yarn 1 pnp can't handle the node: protocol)
 // eslint-disable-next-line unicorn/prefer-node-protocol
-const path = require("path");
-const satisfies = require("semver/functions/satisfies");
-const coerce = require("semver/functions/coerce");
-const extractRootModuleName = require("./extract-root-module-name").default;
+import path from "path";
+import satisfies from "semver/functions/satisfies";
+import coerce from "semver/functions/coerce";
+import extractRootModuleName from "./extract-root-module-name";
 
 /**
  * @throws {Error}
  */
 function getVersion(pModuleName: string): string {
+  // @ts-expect-error TS2345 extractRootModuleName can return either a string or
+  // undefined. If undefined this function will throw. Which is _fine_, even
+  // _expected_ in the context it's currently used
   return require(path.join(extractRootModuleName(pModuleName), "package.json"))
     .version;
 }
@@ -50,4 +53,8 @@ function tryRequire(
   return lReturnValue;
 }
 export default tryRequire;
+
+// for backwards compatibility. Otherwise our consumers in commonjs would need
+// to pick the '.default' property of this module, instead of just the module
+// itself
 module.exports = tryRequire;

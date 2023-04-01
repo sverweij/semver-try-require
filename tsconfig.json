@@ -43,7 +43,7 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. => skipping saves ~50% build time*/
   },
-  "include": ["src/**/*.ts", "src/**/*.js"],
+  "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.ts", "src/__mocks__/"],
   "ts-node": {
     "transpileOnly": true,

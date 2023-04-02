@@ -1,6 +1,6 @@
 {
   "name": "semver-try-require",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "description": "micro module to require or import (versions of) modules that might not be there",
   "exports": {
     ".": {

@@ -24,7 +24,7 @@ export default async function tryImport(pModuleName, pSemanticVersion) {
     let lReturnValue = false;
     try {
         const lModule = await import(pModuleName);
-        lReturnValue = lModule.default;
+        lReturnValue = lModule.default ? lModule.default : lModule;
         if (pSemanticVersion) {
             const lVersion = getVersion(pModuleName);
             const lCoerced = coerce(lVersion);

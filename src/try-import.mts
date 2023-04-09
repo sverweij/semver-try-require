@@ -50,6 +50,7 @@ function getVersion(pModuleName: string): string {
   return lManifest.version;
 }
 
+// eslint-disable-next-line complexity
 export default async function tryImport(
   pModuleName: string,
   pSemanticVersion?: string
@@ -58,7 +59,7 @@ export default async function tryImport(
 
   try {
     const lModule = await import(pModuleName);
-    lReturnValue = lModule.default;
+    lReturnValue = lModule.default ? lModule.default : lModule;
 
     if (pSemanticVersion) {
       const lVersion = getVersion(pModuleName);

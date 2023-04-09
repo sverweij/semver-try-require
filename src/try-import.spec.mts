@@ -1,5 +1,6 @@
-import { strictEqual, deepStrictEqual } from "node:assert";
+import { strictEqual, deepStrictEqual } from "assert";
 import semver from "semver";
+import * as noDefaultExportMock from "no-default-export";
 import tryImport from "./try-import.mjs";
 
 import betaMock from "beta";
@@ -12,6 +13,10 @@ describe("tryImport", () => {
 
   it("returns the module if it is resolvable", async () => {
     deepStrictEqual(await tryImport("semver"), semver);
+  });
+
+  it("returns the module if it is resolvable and doesn't have a default export", async () => {
+    strictEqual(await tryImport("no-default-export"), noDefaultExportMock);
   });
 
   it("returns the module if it is resolvable and satisfies specified semver", async () => {

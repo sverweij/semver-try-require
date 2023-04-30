@@ -55,12 +55,7 @@ export default async function tryImport(
   pModuleName: string,
   pSemanticVersion?: string
 ): Promise<NodeModule | false> {
-  let lReturnValue: NodeModule | false = false;
-
   try {
-    const lModule = await import(pModuleName);
-    lReturnValue = lModule.default ? lModule.default : lModule;
-
     if (pSemanticVersion) {
       const lVersion = getVersion(pModuleName);
       const lCoerced = coerce(lVersion);
@@ -69,11 +64,12 @@ export default async function tryImport(
         lCoerced &&
         !satisfies(lCoerced.version, pSemanticVersion)
       ) {
-        lReturnValue = false;
+        return false;
       }
     }
+    const lModule = await import(pModuleName);
+    return lModule.default ? lModule.default : lModule;
   } catch (pError) {
-    lReturnValue = false;
+    return false;
   }
-  return lReturnValue;
 }

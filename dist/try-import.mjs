@@ -21,22 +21,20 @@ function getVersion(pModuleName) {
     return lManifest.version;
 }
 export default async function tryImport(pModuleName, pSemanticVersion) {
-    let lReturnValue = false;
     try {
-        const lModule = await import(pModuleName);
-        lReturnValue = lModule.default ? lModule.default : lModule;
         if (pSemanticVersion) {
             const lVersion = getVersion(pModuleName);
             const lCoerced = coerce(lVersion);
             if (lVersion &&
                 lCoerced &&
                 !satisfies(lCoerced.version, pSemanticVersion)) {
-                lReturnValue = false;
+                return false;
             }
         }
+        const lModule = await import(pModuleName);
+        return lModule.default ? lModule.default : lModule;
     }
     catch (pError) {
-        lReturnValue = false;
+        return false;
     }
-    return lReturnValue;
 }

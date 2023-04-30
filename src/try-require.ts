@@ -30,11 +30,7 @@ function tryRequire(
   pModuleName: string,
   pSemanticVersion?: string
 ): NodeModule | false {
-  let lReturnValue: NodeModule | false = false;
-
   try {
-    lReturnValue = require(pModuleName);
-
     if (pSemanticVersion) {
       const lVersion = getVersion(pModuleName);
       const lCoerced = coerce(lVersion);
@@ -43,13 +39,13 @@ function tryRequire(
         lCoerced &&
         !satisfies(lCoerced.version, pSemanticVersion)
       ) {
-        lReturnValue = false;
+        return false;
       }
     }
+    return require(pModuleName);
   } catch (pError) {
-    lReturnValue = false;
+    return false;
   }
-  return lReturnValue;
 }
 // eslint-disable-next-line import/exports-last
 export default tryRequire;

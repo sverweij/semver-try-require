@@ -12,23 +12,21 @@ function getVersion(pModuleName) {
         .version;
 }
 function tryRequire(pModuleName, pSemanticVersion) {
-    let lReturnValue = false;
     try {
-        lReturnValue = require(pModuleName);
         if (pSemanticVersion) {
             const lVersion = getVersion(pModuleName);
             const lCoerced = (0, coerce_1.default)(lVersion);
             if (lVersion &&
                 lCoerced &&
                 !(0, satisfies_1.default)(lCoerced.version, pSemanticVersion)) {
-                lReturnValue = false;
+                return false;
             }
         }
+        return require(pModuleName);
     }
     catch (pError) {
-        lReturnValue = false;
+        return false;
     }
-    return lReturnValue;
 }
 exports.default = tryRequire;
 module.exports = tryRequire;

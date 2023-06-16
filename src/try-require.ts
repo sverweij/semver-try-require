@@ -1,5 +1,6 @@
 /* eslint-disable import/no-import-module-exports */
 import path from "path";
+import { createRequire } from "module";
 import satisfies from "semver/functions/satisfies";
 import coerce from "semver/functions/coerce";
 import extractRootModuleName from "./extract-root-module-name";
@@ -7,12 +8,28 @@ import extractRootModuleName from "./extract-root-module-name";
 /**
  * @throws {Error}
  */
-function getVersion(pModuleName: string): string {
+function getVersion(
+  pModuleName: string,
+  pOptions?: { path?: string | URL }
+): string {
+  const lRequire = pOptions?.path ? createRequire(pOptions.path) : require;
+
   // @ts-expect-error TS2345 extractRootModuleName can return either a string or
   // undefined. If undefined this function will throw. Which is _fine_, even
   // _expected_ in the context it's currently used
-  return require(path.join(extractRootModuleName(pModuleName), "package.json"))
+  return lRequire(path.join(extractRootModuleName(pModuleName), "package.json"))
     .version;
+}
+
+/**
+ * @throws {Error}
+ */
+function checkVersion(pModuleName: string, pSemanticVersion: string): boolean {
+  const lVersion = getVersion(pModuleName);
+  const lCoerced = coerce(lVersion);
+  return lVersion && lCoerced
+    ? satisfies(lCoerced.version, pSemanticVersion)
+    : false;
 }
 
 /**
@@ -24,27 +41,23 @@ function getVersion(pModuleName: string): string {
  *
  * @param pModuleName      the name of the module to resolve
  * @param pSemanticVersion (optional) a semantic version (range)
+ * @param pOptions         (optional) options
+ * @param pOptions.path    (optional) filename to be used to construct the require function
  * @return the (resolved) module identified by pModuleName or false
  */
 function tryRequire(
   pModuleName: string,
-  pSemanticVersion?: string
+  pSemanticVersion?: string,
+  pOptions?: { path?: string | URL }
 ): NodeModule | false {
   let lReturnValue: NodeModule | false = false;
+  const lRequire = pOptions?.path ? createRequire(pOptions.path) : require;
 
   try {
-    lReturnValue = require(pModuleName);
+    lReturnValue = lRequire(pModuleName);
 
-    if (pSemanticVersion) {
-      const lVersion = getVersion(pModuleName);
-      const lCoerced = coerce(lVersion);
-      if (
-        lVersion &&
-        lCoerced &&
-        !satisfies(lCoerced.version, pSemanticVersion)
-      ) {
-        lReturnValue = false;
-      }
+    if (pSemanticVersion && !checkVersion(pModuleName, pSemanticVersion)) {
+      lReturnValue = false;
     }
   } catch (pError) {
     lReturnValue = false;

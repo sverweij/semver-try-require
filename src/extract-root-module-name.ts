@@ -11,7 +11,7 @@ const ROOT_MODULE_RE = new RegExp(`^(${SCOPED_PACKAGE_RE}|${PACKAGE_RE})`, "g");
  * @param pModuleName module name string as you'd require it
  */
 export default function extractRootModuleName(
-  pModuleName: string
+  pModuleName: string,
 ): string | undefined {
   if (
     pModuleName.match(LOCAL_MODULE_RE) ||

@@ -28,7 +28,7 @@ function getVersion(pModuleName: string): string {
  */
 function tryRequire(
   pModuleName: string,
-  pSemanticVersion?: string
+  pSemanticVersion?: string,
 ): NodeModule | false {
   try {
     if (pSemanticVersion) {

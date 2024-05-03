@@ -32,7 +32,7 @@ describe("tryRequire - from the dist folder", () => {
   it("returns the module if it is resolvable and satisfies specified semver (with beta postfix)", () => {
     deepEqual(
       tryRequire("../src/node_modules/beta", ">=2.0.0 <4.0.0"),
-      betaMock
+      betaMock,
     );
   });
 

@@ -40,20 +40,22 @@ function getVersion(pModuleName: string): string {
   // );
   // // changes the return type to Promise<string>
   // return lManifest.default.version;
-  const lManifest = require(path.join(
-    // @ts-expect-error TS2345 extractRootModuleName can return either a string or
-    // undefined. If undefined this function will throw. Which is _fine_, even
-    // _expected_ in the context it's currently used
-    extractRootModuleName(pModuleName),
-    "package.json"
-  ));
+  const lManifest = require(
+    path.join(
+      // @ts-expect-error TS2345 extractRootModuleName can return either a string or
+      // undefined. If undefined this function will throw. Which is _fine_, even
+      // _expected_ in the context it's currently used
+      extractRootModuleName(pModuleName),
+      "package.json",
+    ),
+  );
   return lManifest.version;
 }
 
 // eslint-disable-next-line complexity
 export default async function tryImport(
   pModuleName: string,
-  pSemanticVersion?: string
+  pSemanticVersion?: string,
 ): Promise<NodeModule | false> {
   try {
     if (pSemanticVersion) {

@@ -12,5 +12,5 @@
  */
 export function tryRequire(
   pModuleName: string,
-  pSemanticVersion?: string
+  pSemanticVersion?: string,
 ): false | NodeModule;

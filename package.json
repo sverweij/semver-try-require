@@ -93,6 +93,6 @@
     "version": "npm-run-all --sequential build lint scm:stage"
   },
   "engines": {
-    "node": "^14||^16||>=18"
+    "node": "^18.17||>=20"
   }
 }

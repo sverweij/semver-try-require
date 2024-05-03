@@ -19,13 +19,13 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
-          - 16.x
-          - 19.x
+          - 18.x
+          - 22.x
         platform:
           - ubuntu-latest
           - windows-latest
         exclude:
-          - node-version: 16.x
+          - node-version: 18.x
             platform: windows-latest
 
     runs-on: ${{matrix.platform}}

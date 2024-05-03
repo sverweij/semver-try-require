@@ -24,7 +24,7 @@ To make this as easy as possible for you, here's some simple guidelines:
   based on the most recent version of the **develop** branch.
 - Code quality
   - Additions pass eslint and depcruise (as configured for this repo)
-  - Unit tests prove your code does what it intends (we use mocha).
+  - Unit tests prove your code does what it intends (we use node:test).
   - Your code does not introduce regressions - `npm run check` proves
     this.
   - Code style (you know, petty things like indentations, where brackets go,

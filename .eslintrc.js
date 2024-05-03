@@ -20,19 +20,13 @@ module.exports = {
       },
     },
     {
-      files: ["src/**/*.spec.ts", "src/**/*.spec.mts"],
-      env: {
-        mocha: true,
-      },
+      files: ["src/**/*.test.ts", "src/**/*.test.mts"],
       rules: {
         "node/no-extraneous-import": "off",
       },
     },
     {
-      files: ["src/**/*.spec.ts"],
-      env: {
-        mocha: true,
-      },
+      files: ["src/**/*.test.ts"],
       rules: {
         "node/file-extension-in-import": "off",
       },

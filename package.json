@@ -34,7 +34,6 @@
     "semver": "^7.5.3"
   },
   "devDependencies": {
-    "@types/mocha": "10.0.1",
     "@types/node": "20.3.2",
     "@types/semver": "7.5.0",
     "@typescript-eslint/eslint-plugin": "5.60.1",
@@ -50,15 +49,23 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-security": "1.7.1",
     "eslint-plugin-unicorn": "47.0.0",
-    "mocha": "10.2.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.8.8",
-    "ts-node": "10.9.1",
+    "tsx": "4.9.0",
     "typescript": "5.1.5",
     "upem": "8.0.0"
   },
   "overrides": {
     "semver": "^7.5.3"
+  },
+  "upem": {
+    "policies": [
+      {
+        "package": "eslint",
+        "policy": "wanted",
+        "because": "@typescript-eslint/eslint-plugin 7.6.0 uses @typescript-eslint/parser 7.6.0 (currently _latest_) which isn't on eslint 9 yet (it peer requires ^8.56.0)"
+      }
+    ]
   },
   "scripts": {
     "build": "npm-run-all build:clean build:compile",
@@ -81,7 +88,7 @@
     "scm:push:gitlab-mirror:commits": "git push gitlab-mirror",
     "scm:push:gitlab-mirror:tags": "git push --tags gitlab-mirror",
     "scm:stage": "git add .",
-    "test": "c8 mocha --no-warnings",
+    "test": "c8 tsx --test-reporter ./tools/dot-with-summary.reporter.mjs --test src/*.test.mts src/*.test.ts",
     "update-dependencies": "npm-run-all upem:update upem:install lint:fix build check",
     "upem-outdated": "npm outdated --json --long | upem --dry-run",
     "upem:update": "npm outdated --json --long | upem | pbcopy && pbpaste",

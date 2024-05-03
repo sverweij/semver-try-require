@@ -44,9 +44,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. => skipping saves ~50% build time*/
   },
   "include": ["src/**/*.ts", "src/**/*.mts"],
-  "exclude": ["src/**/*.spec.ts", "src/**/*.spec.mts", "src/node_modules/"],
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true
-  }
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.mts", "src/node_modules/"]
 }

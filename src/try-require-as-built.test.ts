@@ -1,9 +1,7 @@
-import { equal, deepEqual } from "node:assert";
+import { equal, deepEqual } from "node:assert/strict";
 import { describe, it } from "node:test";
 import semver from "semver";
-// @ts-expect-error TS7016
 import betaMock from "beta";
-// @ts-expect-error TS7016
 import rcMock from "rc";
 
 const tryRequire = require("../dist/try-require.js");

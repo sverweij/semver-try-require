@@ -1,5 +1,5 @@
-import path from "path/posix";
-import { createRequire } from "module";
+import path from "node:path/posix";
+import { createRequire } from "node:module";
 import { coerce, satisfies } from "semver";
 
 const LOCAL_MODULE_RE = /^[.]{1,2}($|\/.*)/g;

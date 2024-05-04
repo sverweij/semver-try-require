@@ -1,5 +1,5 @@
 /* eslint-disable import/no-import-module-exports */
-import path from "path";
+import path from "node:path";
 import satisfies from "semver/functions/satisfies";
 import coerce from "semver/functions/coerce";
 import extractRootModuleName from "./extract-root-module-name";

@@ -1,4 +1,4 @@
-name: install, lint and test
+name: ci
 
 on:
   push:
@@ -32,12 +32,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{matrix.node-version}}@${{matrix.platform}}-build-${{hashFiles('package.json')}}
-          restore-keys: |
-            ${{matrix.node-version}}@${{matrix.platform}}-build-
       - uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node-version}}

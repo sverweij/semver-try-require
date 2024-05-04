@@ -1,10 +1,8 @@
-import { equal, deepEqual } from "node:assert";
+import { equal, deepEqual } from "node:assert/strict";
 import { describe, it } from "node:test";
 import semver from "semver";
 import tryRequire from "./try-require";
-// @ts-expect-error TS7016
 import betaMock from "beta";
-// @ts-expect-error TS7016
 import rcMock from "rc";
 
 describe("tryRequire", () => {

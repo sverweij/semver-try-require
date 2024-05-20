@@ -1,9 +1,12 @@
 {
-  "statements": 100,
-  "branches": 100,
-  "functions": 100,
-  "lines": 100,
+  "statements": 98.7,
+  "branches": 92.8,
+  "functions": 93.7,
+  "lines": 98.7,
+  "checkCoverage": true,
   "extensions": [".ts", ".mts", ".mjs"],
-  "exclude": ["{src/**/*.spec.ts,src/**/*.spec.mts,src/node_modules/,./*.js}"],
+  "exclude": [
+    "{src/**/*.test.ts,src/**/*.test.mts,src/node_modules/,./*.js,dist/**,tools/**}"
+  ],
   "reporter": ["text-summary", "html", "json-summary"]
 }
